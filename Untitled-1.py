@@ -3,9 +3,9 @@ from colorama import * #Allows custom text color in terminal
 import time
 
 #"Z" is code
-y = input(Fore.BLUE +"To access this program, you may have a code provided in the message we gave you, as well as the appointment code we may need later. Please put in the code ")
+y = input(Fore.RED +"To access this program, you may have a code provided in the message we gave you, as well as the appointment code we may need later. Please put in the code " + Fore.RESET)
 if (y == "Z") or "z":
-    print("Loading.....")
+    print(Fore.BLUE + "Loading.....")
 else: sys.exit()
 def countdown(time_sec):
     while time_sec:
@@ -14,7 +14,20 @@ def countdown(time_sec):
         print(timeformat, end='\r')
         time.sleep(1)
         time_sec -= 1
-countdown(2)
+countdown(1)
+
+import random
+import string
+
+def get_random_string(length):
+    # choose from all lowercase letter
+    letters = string.ascii_uppercase
+    result_str = ''.join(random.choice(letters) for i in range(length))
+    print("Your unique reference code", length, "is:", result_str)
+
+get_random_string(6)
+countdown(1)
+
 name = input("Insert patient name " )
 if name == "Ray": 
     print("  ")
@@ -59,7 +72,7 @@ def countdown(time_sec):
         print(timeformat, end='\r')
         time.sleep(1)
         time_sec -= 1
-countdown(5)
+countdown(1)
 Fore.RESET
 Date2 = input(Fore.CYAN + "Put in the new code: ")
 if Date2 == "ABC":
@@ -70,7 +83,8 @@ else:
 Day2 = datetime.date(2022, 8, 17) - datetime.date.today() 
 Day2 = str(Day2)
 print("Your appointment will be in " + Day2.strip("0: ,"))
-Details = (age, name, patient_status,"Appointment in:" Day2.strip("0: ,"))
+Details = (age, name, patient_status,"Appointment in:" + Day2.strip("0: ,"))
+# Note: if **input** won't ever work as thats a function, i named the variable "a" , hence "if a=..."
 a = input("do you want ur Details? (Input Yes or No) ")
 if a == "Yes": 
     print(Details)
