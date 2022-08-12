@@ -1,16 +1,22 @@
-import sys #Allows to kill program if wrong inpput
-from colorama import * #Allows custom text color in terminal
+import sys  # Allows to kill program if wrong inpput
+from colorama import *  # Allows custom text color in terminal
 import time
 import random
 import string
 import datetime
 
 
-#"L" is code
-y = input(Fore.RED +"To access this program, you may have a code provided in the message we gave you, as well as the appointment code we may need later. Please put in the code " + Fore.RESET)
-if (y == "ENTER") or "enter" or "Enter":
+# "L" is code
+y = input(
+    Fore.RED + "To access this program, you may have a code provided in the message we gave you, as well as the "
+               "appointment code we may need later. Please put in the code " + Fore.RESET)
+
+if y == "":  # User press the Enter Key
     print(Fore.BLUE + "Loading.....")
-else: sys.exit()
+else:
+    sys.exit()
+
+
 def countdown(time_sec):
     while time_sec:
         mins, secs = divmod(time_sec, 60)
@@ -18,73 +24,85 @@ def countdown(time_sec):
         print(timeformat, end='\r')
         time.sleep(1)
         time_sec -= 1
+
+
 countdown(1)
+
 
 def get_random_string(length):
     letters = string.ascii_uppercase
     result_str = ''.join(random.choice(letters) for i in range(length))
     print("Your unique reference code", "is:", result_str)
 
+
 get_random_string(6)
 countdown(1)
 
-name = input("Insert patient name " )
-if name == "Ray": 
+
+name = input("Insert patient name: ")
+if name == "Ray":
     print("  ")
 else:
     print("You have put in the wrong name")
     sys.exit()
-age = input("Please put in patient age here:" )
-patient_status= input("Put in status: New or Old? ")
-condition = "new" in patient_status.lower()
-if condition: 
+
+
+age = input("Please put in patient age here: ")
+patient_status = input("Put in status (New or Old): ").lower()
+condition = "new" in patient_status
+
+if condition:
     print("You are a NEW patient!")
-else: 
-    print("You are an OLD patient" + Fore.RESET) 
-#The code is "XYZ" , thats pretty much it lol ty :D
-Date = input("Put in your unique access code " )
-if Date == "XYZ":
-    print("Your appointment date is on 27/11/24",)
 else:
-    print("Your code is incorrect, Maybe you put in another code by accident?",)
+    print("You are an OLD patient" + Fore.RESET)
+
+
+# The code is "XYZ" , that's pretty much it lol ty :D
+date = input("Put in your unique access code: ")
+if date == "XYZ":
+    print("Your appointment date is on 27/11/24", )
+else:
+    print("Your code is incorrect, Maybe you put in another code by accident?", )
     sys.exit()
 
-    
-#Date sustem which calcuates appointment dates
-Day = datetime.date(2022, 11, 27) - datetime.date.today() 
-Day = str(Day)
-print("Your appointment will be in " + Day.strip("0: ,"))
-#2nd code is "ABC"
-x = input("Do you have a second code that was provided? ")
-if "yes" in x.lower():
- print("You may proceed")
-else: print("Have a nice day") + sys.exit()
+# Date system which calculates appointment dates
+day = datetime.date(2022, 11, 27) - datetime.date.today()
+day = str(day)
+print("Your appointment will be in " + day.strip("0: ,"))
+
+# 2nd code is "ABC"
+x = input("Do you have a second code that was provided? ").lower()
+
+if "yes" in x:
+    print("You may proceed")
+else:
+    print("Have a nice day")
+    sys.exit(1)
+
 print("You may request a new code that may speed up your date, in such case please insert the new code here")
 print("ㅤㅤㅤㅤㅤㅤ")
 print("Please wait for a moment before putting in a new code")
 print("ㅤㅤㅤㅤㅤㅤ")
-#Time library that counts down after putting in code:
-def countdown(time_sec):
-    while time_sec:
-        mins, secs = divmod(time_sec, 60)
-        timeformat = '{:02d}:{:02d}'.format(mins, secs)
-        print(timeformat, end='\r')
-        time.sleep(1)
-        time_sec -= 1
+
+
 countdown(1)
-Fore.RESET
-Date2 = input(Fore.CYAN + "Put in the new code: ")
-if Date2 == "ABC":
+
+date2 = input(Fore.CYAN + "Put in the new code: ")
+if date2 == "ABC":
     print("Your appointment is on 17/8/22")
 else:
-        print("The code you put in was icorrect.")
-        sys.exit()
-Day2 = datetime.date(2022, 8, 17) - datetime.date.today() 
-Day2 = str(Day2)
-print("Your appointment will be in " + Day2.strip("0: ,"))
-Details = (age, name, patient_status,"Appointment in:" + Day2.strip("0: ,"))
-# Note: if **input** won't ever work as thats a function, i named the variable "a" , hence "if a=..."
-a = input("do you want ur Details? (Input Yes or No) ")
-if a == "Yes": 
-    print(Details)
-else : print("have a nice day :)" + Fore.RESET)
+    print("The code you put in was icorrect.")
+    sys.exit()
+
+
+day2 = datetime.date(2022, 8, 17) - datetime.date.today()
+day2 = str(day2)
+details = (age, name, patient_status, "Appointment in:" + day2.strip("0: ,"))
+print("Your appointment will be in " + day2.strip("0: ,"))
+
+# Note: if **input** won't ever work as that's a function, I named the variable "a" , hence "if a=..."
+a = input("do you want ur Details? (Input Yes or No) ").lower()
+if a == "yes":
+    print(details)
+else:
+    print("have a nice day :)" + Fore.RESET)
