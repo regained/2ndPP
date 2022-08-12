@@ -1,10 +1,14 @@
-import sys #Allows to kill program if wrong program
+import sys #Allows to kill program if wrong inpput
 from colorama import * #Allows custom text color in terminal
 import time
+import random
+import string
+import datetime
 
-#"Z" is code
+
+#"L" is code
 y = input(Fore.RED +"To access this program, you may have a code provided in the message we gave you, as well as the appointment code we may need later. Please put in the code " + Fore.RESET)
-if (y == "Z") or "z":
+if (y == "ENTER") or "enter" or "Enter":
     print(Fore.BLUE + "Loading.....")
 else: sys.exit()
 def countdown(time_sec):
@@ -16,14 +20,10 @@ def countdown(time_sec):
         time_sec -= 1
 countdown(1)
 
-import random
-import string
-
 def get_random_string(length):
-    # choose from all lowercase letter
     letters = string.ascii_uppercase
     result_str = ''.join(random.choice(letters) for i in range(length))
-    print("Your unique reference code", length, "is:", result_str)
+    print("Your unique reference code", "is:", result_str)
 
 get_random_string(6)
 countdown(1)
@@ -36,7 +36,7 @@ else:
     sys.exit()
 age = input("Please put in patient age here:" )
 patient_status= input("Put in status: New or Old? ")
-condition = "New" or "new" in patient_status
+condition = "new" in patient_status.lower()
 if condition: 
     print("You are a NEW patient!")
 else: 
@@ -51,13 +51,12 @@ else:
 
     
 #Date sustem which calcuates appointment dates
-import datetime
 Day = datetime.date(2022, 11, 27) - datetime.date.today() 
 Day = str(Day)
 print("Your appointment will be in " + Day.strip("0: ,"))
 #2nd code is "ABC"
 x = input("Do you have a second code that was provided? ")
-if (x == "Yes") or "yes" or "YES":
+if "yes" in x.lower():
  print("You may proceed")
 else: print("Have a nice day") + sys.exit()
 print("You may request a new code that may speed up your date, in such case please insert the new code here")
