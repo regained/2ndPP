@@ -4,6 +4,7 @@ import time
 import random
 import string
 import datetime
+from pyfiglet import figlet_format
 
 
 print("""\
@@ -22,10 +23,13 @@ print("""\
 
 
 #"L" is code
-y = input(Fore.RED +"To access this program, you may have a code provided in the message we gave you, as well as the appointment code we may need later. Please put in the code " + Fore.RESET)
+y = input(
+    Fore.RED +"To access this program, you may have a code provided in the message we gave you, as well as the appointment code we may need later. "
+     " Please put in the code " + Fore.RESET)
 if (y == "ENTER") or "enter" or "Enter":
     print(Fore.BLUE + "Loading.....")
-else: sys.exit()
+else:
+     sys.exit()
 def countdown(time_sec):
     while time_sec:
         mins, secs = divmod(time_sec, 60)
@@ -56,7 +60,7 @@ if condition:
     print("You are a NEW patient!")
 else: 
     print("You are an OLD patient" + Fore.RESET) 
-#The code is "XYZ" , thats pretty much it lol ty :D
+#The code is "XYZ"
 Date = input("Put in your unique access code " )
 if Date == "XYZ":
     print("Your appointment date is on 27/11/24",)
@@ -92,14 +96,6 @@ print("You may request a new code that may speed up your date, in such case plea
 print("ㅤㅤㅤㅤㅤㅤ")
 print("Please wait for a moment before putting in a new code")
 print("ㅤㅤㅤㅤㅤㅤ")
-#Time library that counts down after putting in code:
-def countdown(time_sec):
-    while time_sec:
-        mins, secs = divmod(time_sec, 60)
-        timeformat = '{:02d}:{:02d}'.format(mins, secs)
-        print(timeformat, end='\r')
-        time.sleep(1)
-        time_sec -= 1
 countdown(1)
 Fore.RESET
 Date2 = input(Fore.CYAN + "Put in the new code: ")
@@ -118,16 +114,13 @@ if a == "Yes":
     print(Details)
 else : 
     print("""\
-        
- /$$   /$$                                                               /$$                                 /$$                     /$$
-| $$  | $$                                                              |__/                                | $$                    | $$
-| $$  | $$  /$$$$$$  /$$    /$$ /$$$$$$         /$$$$$$        /$$$$$$$  /$$  /$$$$$$$  /$$$$$$         /$$$$$$$  /$$$$$$  /$$   /$$| $$
-| $$$$$$$$ |____  $$|  $$  /$$//$$__  $$       |____  $$      | $$__  $$| $$ /$$_____/ /$$__  $$       /$$__  $$ |____  $$| $$  | $$| $$
-| $$__  $$  /$$$$$$$ \  $$/$$/| $$$$$$$$        /$$$$$$$      | $$  \ $$| $$| $$      | $$$$$$$$      | $$  | $$  /$$$$$$$| $$  | $$|__/
-| $$  | $$ /$$__  $$  \  $$$/ | $$_____/       /$$__  $$      | $$  | $$| $$| $$      | $$_____/      | $$  | $$ /$$__  $$| $$  | $$    
-| $$  | $$|  $$$$$$$   \  $/  |  $$$$$$$      |  $$$$$$$      | $$  | $$| $$|  $$$$$$$|  $$$$$$$      |  $$$$$$$|  $$$$$$$|  $$$$$$$ /$$
-|__/  |__/ \_______/    \_/    \_______/       \_______/      |__/  |__/|__/ \_______/ \_______/       \_______/ \_______/ \____  $$|__/
-                                                                                                                           /$$  | $$    
-                                                                                                                          |  $$$$$$/    
-                                                                                                                           \______/     
+
+.d8888. d88888b .d8888. .d8888. d888888b  .d88b.  d8b   db      d888888b d88888b d8888b. .88b  d88. d888888b d8b   db  .d8b.  d888888b d88888b d8888b. 
+88'  YP 88'     88'  YP 88'  YP   `88'   .8P  Y8. 888o  88      `~~88~~' 88'     88  `8D 88'YbdP`88   `88'   888o  88 d8' `8b `~~88~~' 88'     88  `8D 
+`8bo.   88ooooo `8bo.   `8bo.      88    88    88 88V8o 88         88    88ooooo 88oobY' 88  88  88    88    88V8o 88 88ooo88    88    88ooooo 88   88 
+  `Y8b. 88~~~~~   `Y8b.   `Y8b.    88    88    88 88 V8o88         88    88~~~~~ 88`8b   88  88  88    88    88 V8o88 88~~~88    88    88~~~~~ 88   88 
+db   8D 88.     db   8D db   8D   .88.   `8b  d8' 88  V888         88    88.     88 `88. 88  88  88   .88.   88  V888 88   88    88    88.     88  .8D 
+`8888Y' Y88888P `8888Y' `8888Y' Y888888P  `Y88P'  VP   V8P         YP    Y88888P 88   YD YP  YP  YP Y888888P VP   V8P YP   YP    YP    Y88888P Y8888D' 
+                                                                                                                                                       
+                                                                                                                                                       
                                                """)
